@@ -1,0 +1,1979 @@
+{
+	"info": {
+		"_postman_id": "8244f09b-b173-4e50-8991-35ab6dd33b79",
+		"name": "FeralCatRescueSystem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"item": [
+				{
+					"name": "登录",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"admin\",\r\n    \"password\":\"123456\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8088/login/auth",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"login",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取登录信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "3c4910bffcc241d58ee8",
+								"description": "token令牌",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://101.33.246.107:8088/login/getInfo",
+							"protocol": "http",
+							"host": [
+								"101",
+								"33",
+								"246",
+								"107"
+							],
+							"port": "8088",
+							"path": [
+								"login",
+								"getInfo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "注销登录信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "faf4a9be0ee14775af6d"
+							}
+						],
+						"url": {
+							"raw": "http://101.33.246.107:8088/login/logout",
+							"protocol": "http",
+							"host": [
+								"101",
+								"33",
+								"246",
+								"107"
+							],
+							"port": "8088",
+							"path": [
+								"login",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "获取用户列表",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "682c3697d228403583bb",
+								"description": "token令牌",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://101.33.246.107:8088/user/list?pageNum=1&pageRow=4",
+							"protocol": "http",
+							"host": [
+								"101",
+								"33",
+								"246",
+								"107"
+							],
+							"port": "8088",
+							"path": [
+								"user",
+								"list"
+							],
+							"query": [
+								{
+									"key": "pageNum",
+									"value": "1",
+									"description": "页数"
+								},
+								{
+									"key": "pageRow",
+									"value": "4",
+									"description": "每页行数"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "添加用户信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "43f87148f7644fa99f27",
+								"description": "token令牌",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"tests3331\",\r\n    \"password\":\"123456\",\r\n    \"nickname\":\"测试机1322\",\r\n    \"sex\":\"女\",\r\n    \"age\":\"21\",\r\n    \"tel\":\"1258745896\",\r\n    \"address\":\"地球\",\r\n    \"roleIds\":[\r\n        2\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "http://101.33.246.107:8088/user/addUser",
+							"protocol": "http",
+							"host": [
+								"101",
+								"33",
+								"246",
+								"107"
+							],
+							"port": "8088",
+							"path": [
+								"user",
+								"addUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "用户注册",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "43f87148f7644fa99f27"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"注册t221\",\r\n    \"password\":\"123456\",\r\n    \"nickname\":\"测试机221\",\r\n    \"sex\":\"女\",\r\n    \"age\":\"21\",\r\n    \"tel\":\"1258745896\",\r\n    \"address\":\"地球\"\r\n}"
+						},
+						"url": {
+							"raw": "http://101.33.246.107:8088/user/register",
+							"protocol": "http",
+							"host": [
+								"101",
+								"33",
+								"246",
+								"107"
+							],
+							"port": "8088",
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新(删除)用户信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "0acdc88666254dffb88c",
+								"description": "token令牌",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":\"10003\",\r\n    \"nickname\":\"测试修改2\",\r\n    \"roleIds\":[2],\r\n    \"deleteStatus\":\"1\",\r\n    \"password\":\"654321\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8088/user/updateUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"user",
+								"updateUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取所有角色列表",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "b3d89e6ad9184765b669",
+								"description": "token令牌",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://101.33.246.107:8088/user/getAllRoles",
+							"protocol": "http",
+							"host": [
+								"101",
+								"33",
+								"246",
+								"107"
+							],
+							"port": "8088",
+							"path": [
+								"user",
+								"getAllRoles"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "批量删除用户(此方法也可用作撤销删除)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "ffaa17063af949839de0"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":[\r\n        10028\r\n    ],\r\n    \"deleteStatus\":\"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://101.33.246.107:8088/user/batchDeleteUser",
+							"protocol": "http",
+							"host": [
+								"101",
+								"33",
+								"246",
+								"107"
+							],
+							"port": "8088",
+							"path": [
+								"user",
+								"batchDeleteUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取指定的用户数据(模糊查询",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "b3d89e6ad9184765b669",
+								"description": "token令牌",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://101.33.246.107:8088/user/listByName?pageNum=1&pageRow=10&nickname=2",
+							"protocol": "http",
+							"host": [
+								"101",
+								"33",
+								"246",
+								"107"
+							],
+							"port": "8088",
+							"path": [
+								"user",
+								"listByName"
+							],
+							"query": [
+								{
+									"key": "pageNum",
+									"value": "1",
+									"description": "页数"
+								},
+								{
+									"key": "pageRow",
+									"value": "10",
+									"description": "每页行数"
+								},
+								{
+									"key": "nickname",
+									"value": "2",
+									"description": "指定的用户名字"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "teach",
+			"item": [
+				{
+					"name": "获取养猫教学列表",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "93a7e5fd6e6a4c518b83"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/teach/list?pageNum=1&pageRow=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"teach",
+								"list"
+							],
+							"query": [
+								{
+									"key": "pageNum",
+									"value": "1",
+									"description": "页数"
+								},
+								{
+									"key": "pageRow",
+									"value": "10",
+									"description": "每页行数"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "添加养猫教学信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "613cd2723aa8491c819c"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"teachTitle\":\"养猫测试标题2\",\r\n    \"teachContent\":\"养猫测试文章2\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8088/teach/addTeach",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"teach",
+								"addTeach"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新(删除)养猫教学信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "613cd2723aa8491c819c"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"teachTitle\":\"测试\",\r\n    \"teachContent\":\"测试文章\",\r\n    \"deleteStatus\":\"1\",\r\n    \"teachId\":\"23\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8088/teach/updateTeach",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"teach",
+								"updateTeach"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "批量删除养猫教学信息(此方法也可用作撤销删除)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "613cd2723aa8491c819c",
+								"description": "token令牌",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"teachId\":[\r\n        23,24\r\n    ],\r\n    \"deleteStatus\":\"2\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8088/teach/batchDeleteTeach",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"teach",
+								"batchDeleteTeach"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取指定的养猫信息数据",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "93a7e5fd6e6a4c518b83"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/teach//listByTeachTitle?pageNum=1&pageRow=10&teachTitle=学",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"teach",
+								"",
+								"listByTeachTitle"
+							],
+							"query": [
+								{
+									"key": "pageNum",
+									"value": "1",
+									"description": "页数"
+								},
+								{
+									"key": "pageRow",
+									"value": "10",
+									"description": "每页行数"
+								},
+								{
+									"key": "teachTitle",
+									"value": "学",
+									"description": "指定的养猫信息标题"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "announcement",
+			"item": [
+				{
+					"name": "获公告列表",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "3c4910bffcc241d58ee8"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/announcement/list?pageNum=1&pageRow=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"announcement",
+								"list"
+							],
+							"query": [
+								{
+									"key": "pageNum",
+									"value": "1",
+									"description": "页数"
+								},
+								{
+									"key": "pageRow",
+									"value": "10",
+									"description": "每页行数"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "添加公告信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "cfd7e5b428874179ab0d"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"announcementTitle\":\"公告测试标题2\",\r\n    \"announcementContent\":\"公告测试文章2\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8088/announcement/addAnnouncement",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"announcement",
+								"addAnnouncement"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新(删除)公告信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "cfd7e5b428874179ab0d"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"announcementTitle\":\"公告测试\",\r\n    \"announcementContent\":\"公告测试内容\",\r\n    \"deleteStatus\":\"1\",\r\n    \"announcementId\":\"23\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8088/announcement/updateAnnouncement",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"announcement",
+								"updateAnnouncement"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "批量删除公告信息(此方法也可用作撤销删除)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "cfd7e5b428874179ab0d"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"announcementId\":[\r\n        22,23\r\n    ],\r\n    \"deleteStatus\":\"1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8088/announcement/batchDeleteAnnouncement",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"announcement",
+								"batchDeleteAnnouncement"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取指定的公告数据（模糊查询",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "2a21d6177db64382b9c6"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/announcement/listByAnnouncementTitle?pageNum=1&pageRow=10&announcementTitle=测试",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"announcement",
+								"listByAnnouncementTitle"
+							],
+							"query": [
+								{
+									"key": "pageNum",
+									"value": "1",
+									"description": "页数"
+								},
+								{
+									"key": "pageRow",
+									"value": "10",
+									"description": "每页行数"
+								},
+								{
+									"key": "announcementTitle",
+									"value": "测试",
+									"description": "指定的公告信息标题"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "adopt",
+			"item": [
+				{
+					"name": "获取领养列表",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "6ab4f5cb7f6a4be39cb6"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/adopt/list?pageNum=1&pageRow=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"adopt",
+								"list"
+							],
+							"query": [
+								{
+									"key": "pageNum",
+									"value": "1",
+									"description": "页数"
+								},
+								{
+									"key": "pageRow",
+									"value": "10",
+									"description": "每页行数"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "添加领养信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "6ab4f5cb7f6a4be39cb6"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"adoptCatName\":\"猫4\",\r\n    \"adoptDescription\":\"想要领养4\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8088/adopt/addAdopt",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"adopt",
+								"addAdopt"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新(删除)领养信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "6ab4f5cb7f6a4be39cb6"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"adoptCatName\":\"测试猫4\",\r\n    \"adoptDescription\":\"测试领养4\",\r\n    \"deleteStatus\":\"1\",\r\n    \"adoptId\":\"24\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8088/adopt/updateAdopt",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"adopt",
+								"updateAdopt"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "批量删除领养信息(此方法也可用作撤销删除)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "6ab4f5cb7f6a4be39cb6"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"adoptId\":[\r\n        22,24\r\n    ],\r\n    \"deleteStatus\":\"1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8088/adopt/batchDeleteAdopt",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"adopt",
+								"batchDeleteAdopt"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取指定的领养数据（模糊查询",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "fe75e01da0814f0e9d75"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/adopt/listByAdoptName?pageNum=1&pageRow=10&adoptCatName=猫4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"adopt",
+								"listByAdoptName"
+							],
+							"query": [
+								{
+									"key": "pageNum",
+									"value": "1",
+									"description": "页数"
+								},
+								{
+									"key": "pageRow",
+									"value": "10",
+									"description": "每页行数"
+								},
+								{
+									"key": "adoptCatName",
+									"value": "猫4",
+									"description": "指定的领养猫名字"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cat",
+			"item": [
+				{
+					"name": "获取流浪猫信息列表",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "3c4910bffcc241d58ee8"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/cat/list?pageNum=1&pageRow=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"cat",
+								"list"
+							],
+							"query": [
+								{
+									"key": "pageNum",
+									"value": "1",
+									"description": "页数"
+								},
+								{
+									"key": "pageRow",
+									"value": "10",
+									"description": "每页行数"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "添加流浪猫信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "e91fe5a2c28a455993b1"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"catName\":\"猫5\",\r\n    \"catSex\":\"公\",\r\n    \"catDescription\":\"猫描述5\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8088/cat/addCat",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"cat",
+								"addCat"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新(删除)流浪猫信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "e91fe5a2c28a455993b1"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"catName\":\"猫5\",\r\n    \"catSex\":\"公\",\r\n    \"catDescription\":\"测试描述5\",\r\n    \"deleteStatus\":\"2\",\r\n    \"catId\":\"22\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8088/cat/updateCat",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"cat",
+								"updateCat"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "批量删除流浪猫信息(此方法也可用作撤销删除)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "e91fe5a2c28a455993b1"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"catId\":[\r\n        22,24\r\n    ],\r\n    \"deleteStatus\":\"1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8088/cat/batchDeleteCat",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"cat",
+								"batchDeleteCat"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取指定的流浪猫信息数据（模糊查询",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "56def03009b048848933"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/cat/listByCatName?pageNum=1&pageRow=10&catName=猫",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"cat",
+								"listByCatName"
+							],
+							"query": [
+								{
+									"key": "pageNum",
+									"value": "1",
+									"description": "页数"
+								},
+								{
+									"key": "pageRow",
+									"value": "10",
+									"description": "每页行数"
+								},
+								{
+									"key": "catName",
+									"value": "猫",
+									"description": "指定的流浪猫名字"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "life",
+			"item": [
+				{
+					"name": "获取晒猫日常信息列表",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "fb1b40f7e4b34a64a92a"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/life/list?pageNum=1&pageRow=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"life",
+								"list"
+							],
+							"query": [
+								{
+									"key": "pageNum",
+									"value": "1",
+									"description": "页数"
+								},
+								{
+									"key": "pageRow",
+									"value": "10",
+									"description": "每页行数"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "添加晒猫日常信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "fb1b40f7e4b34a64a92a"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lifeTitle\":\"晒猫生活标题测试\",\r\n    \"lifeContent\":\"晒猫生活内容测试\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8088/life/addLife",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"life",
+								"addLife"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新(删除)晒猫日常信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "fb1b40f7e4b34a64a92a"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lifeTitle\":\"测试晒猫生活标题修改\",\r\n    \"lifeContent\":\"测试晒猫生活内容修改\",\r\n    \"deleteStatus\":\"1\",\r\n    \"lifeId\":\"23\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8088/life/updateLife",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"life",
+								"updateLife"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "批量删除晒猫日常信息(此方法也可用作撤销删除)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "fb1b40f7e4b34a64a92a"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lifeId\":[\r\n        22,23\r\n    ],\r\n    \"deleteStatus\":\"1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8088/life/batchDeleteLife",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"life",
+								"batchDeleteLife"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取指定的晒猫日常信息数据（模糊查询",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "fb1b40f7e4b34a64a92a"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/life/listByLifeName?pageNum=1&pageRow=10&lifeTitle=日子",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"life",
+								"listByLifeName"
+							],
+							"query": [
+								{
+									"key": "pageNum",
+									"value": "1",
+									"description": "页数"
+								},
+								{
+									"key": "pageRow",
+									"value": "10",
+									"description": "每页行数"
+								},
+								{
+									"key": "lifeTitle",
+									"value": "日子",
+									"description": "指定晒猫生活信息标题\n"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "message",
+			"item": [
+				{
+					"name": "获取留言信息列表",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "43f87148f7644fa99f27"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/message/list?pageNum=1&pageRow=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"message",
+								"list"
+							],
+							"query": [
+								{
+									"key": "pageNum",
+									"value": "1",
+									"description": "页数"
+								},
+								{
+									"key": "pageRow",
+									"value": "10",
+									"description": "每页行数"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "添加留言信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "fb1b40f7e4b34a64a92a"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messageContent\":\"留言信息测试\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8088/message/addMessage",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"message",
+								"addMessage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新(删除)留言信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "fb1b40f7e4b34a64a92a"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messageContent\":\"测试留言修改\",\r\n    \"deleteStatus\":\"1\",\r\n    \"messageId\":\"23\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8088/message/updateMessage",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"message",
+								"updateMessage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "批量删除留言信息(此方法也可用作撤销删除)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "fb1b40f7e4b34a64a92a"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"messageId\":[\r\n        23,24\r\n    ],\r\n    \"deleteStatus\":\"1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8088/message/batchDeleteMessage",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"message",
+								"batchDeleteMessage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取指定作者的留言信息数据（模糊查询",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "fb1b40f7e4b34a64a92a"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/message/listByMessageName?pageNum=1&pageRow=10&messageAuthor=狗",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"message",
+								"listByMessageName"
+							],
+							"query": [
+								{
+									"key": "pageNum",
+									"value": "1",
+									"description": "页数"
+								},
+								{
+									"key": "pageRow",
+									"value": "10",
+									"description": "每页行数"
+								},
+								{
+									"key": "messageAuthor",
+									"value": "狗",
+									"description": "指定的留言作者名字"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "organization",
+			"item": [
+				{
+					"name": "获取救助组织信息列表",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "7900005a1e144f01b006"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/organization/list?pageNum=1&pageRow=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"organization",
+								"list"
+							],
+							"query": [
+								{
+									"key": "pageNum",
+									"value": "1",
+									"description": "页数"
+								},
+								{
+									"key": "pageRow",
+									"value": "10",
+									"description": "每页行数"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "添加救助组织信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "7900005a1e144f01b006"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"organizationName\":\"救助组织名字测试\",\r\n    \"organizationTel\":\"救助组织电话测试\",\r\n    \"organizationAddress\":\"救助组织地址测试\",\r\n    \"organizationDescription\":\"救助组织描述测试\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8088/organization/addOrganization",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"organization",
+								"addOrganization"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新(删除)救助组织信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "7900005a1e144f01b006"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"organizationName\":\"测试救助组织名字修改\",\r\n    \"organizationTel\":\"测试救助组织电话修改\",\r\n    \"organizationAddress\":\"测试救助组织地址修改\",\r\n    \"organizationDescription\":\"测试救助组织描述修改\",\r\n    \"deleteStatus\":\"1\",\r\n    \"organizationId\":\"22\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8088/organization/updateOrganization",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"organization",
+								"updateOrganization"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "批量删除救助组织信息(此方法也可用作撤销删除)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "7900005a1e144f01b006"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"organizationId\":[\r\n        22,23\r\n    ],\r\n    \"deleteStatus\":\"1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8088/organization/batchDeleteOrganization",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"organization",
+								"batchDeleteOrganization"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取指定的救助组织信息数据（模糊查询",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "7900005a1e144f01b006"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/organization/listByOrganizationName?pageNum=1&pageRow=10&organizationName=测试",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"organization",
+								"listByOrganizationName"
+							],
+							"query": [
+								{
+									"key": "pageNum",
+									"value": "1",
+									"description": "页数"
+								},
+								{
+									"key": "pageRow",
+									"value": "10",
+									"description": "每页行数"
+								},
+								{
+									"key": "organizationName",
+									"value": "测试",
+									"description": "指定的救助机构名字"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "rescue",
+			"item": [
+				{
+					"name": "获取求助信息列表",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "7900005a1e144f01b006"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/rescue/list?pageNum=1&pageRow=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"rescue",
+								"list"
+							],
+							"query": [
+								{
+									"key": "pageNum",
+									"value": "1",
+									"description": "页数"
+								},
+								{
+									"key": "pageRow",
+									"value": "10",
+									"description": "每页行数"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "添加求助信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "7900005a1e144f01b006"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rescueOrganizationName\":\"求助信息名字测试\",\r\n    \"rescueDescription\":\"求助信息描述测试\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8088/rescue/addRescue",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"rescue",
+								"addRescue"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新(删除)求助信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "7900005a1e144f01b006"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rescueOrganizationName\":\"求助组织名字更新测试\",\r\n    \"rescueDescription\":\"求助描述更新测试\",\r\n    \"deleteStatus\":\"1\",\r\n    \"rescueId\":\"23\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8088/rescue/updateRescue",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"rescue",
+								"updateRescue"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "批量删除求助信息(此方法也可用作撤销删除)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "7900005a1e144f01b006"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rescueId\":[\r\n        22,23\r\n    ],\r\n    \"deleteStatus\":\"2\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8088/rescue/batchDeleteRescue",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"rescue",
+								"batchDeleteRescue"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取指定的求助信息数据（模糊查询",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "token令牌",
+								"key": "token",
+								"type": "text",
+								"value": "7900005a1e144f01b006"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/rescue/listByRescueName?pageNum=1&pageRow=10&rescueUserName=权限",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"rescue",
+								"listByRescueName"
+							],
+							"query": [
+								{
+									"key": "pageNum",
+									"value": "1",
+									"description": "页数"
+								},
+								{
+									"key": "pageRow",
+									"value": "10",
+									"description": "每页行数"
+								},
+								{
+									"key": "rescueUserName",
+									"value": "权限",
+									"description": "指定的求助人名字"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
